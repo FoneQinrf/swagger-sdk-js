@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-13 14:32:37
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-05-14 10:49:20
+ * @LastEditTime: 2020-05-14 13:08:57
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -37,6 +37,7 @@ class createApi {
             methods: methodsList,
             info: this.swaggerJson.info
         }
+        
         let json = beautify(Handlebars.compile(request)(data))
         return json;
     }
