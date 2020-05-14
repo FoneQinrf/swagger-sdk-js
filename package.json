@@ -1,6 +1,6 @@
 {
   "name": "swagger-sdk-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "根据swagger-api生成请求方法",
   "main": "index.js",
   "private": false,
