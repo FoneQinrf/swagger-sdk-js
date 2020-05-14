@@ -1,0 +1,53 @@
+/**
+ * @Description: {{summary}}
+ * @requestName: {{methodName}}
+ */
+export const {{&methodName}} = function(parameters = {}) {
+    let domain = parameters.$domain ? parameters.$domain : getDomain()
+    let config = parameters.$config
+    let form = {}
+    let body
+    let path = '{{path}}'
+    let queryParameters = {}
+
+    {{#parameters}}
+        {{#if required}}
+        if(parameters['{{name}}'] === undefined) {
+            return Promise.reject(new Error('Missing required {{methodName}} parameter: {{name}}'))
+        }
+
+        {{/if}}
+        {{#if isParameters}}
+            path = path.replace('{{name}}', `${parameters['{{name}}']}`)
+
+            {{else}}
+            if(parameters['{{name}}'] !== undefined) {
+                queryParameters['{{name}}'] = parameters['{{name}}']
+            }
+        {{/if}}
+    {{/parameters}}
+
+    if (parameters.$queryParameters) {
+        Object.keys(parameters.$queryParameters).forEach(function(parameterName) {
+            queryParameters[parameterName] = parameters.$queryParameters[parameterName]
+        });
+    }
+
+    return request('{{method}}', domain + path, body, queryParameters, form, config)
+}
+
+/**
+ *  @Description: request url
+ *  @return url
+ */
+export const {{&methodName}}_URL = function(parameters = {}) {
+    return '{{path}}'
+}
+
+/**
+ *  @Description: request type
+ *  @return method
+ */
+export const {{&methodName}}_TYPE = function(parameters = {}) {
+    return '{{method}}'
+}

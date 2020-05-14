@@ -1,0 +1,11 @@
+deploy_versions/
+.temp/
+.rn_temp/
+node_modules/
+.DS_Store
+yarn-error.log
+test.js
+service.js
+/dist
+/webpack.config.js
+yarn.lock

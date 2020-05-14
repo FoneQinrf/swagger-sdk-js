@@ -1,0 +1,20 @@
+{
+  "name": "swagger-sdk-js",
+  "version": "0.0.1",
+  "description": "根据swagger-api生成请求方法",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production --config webpack.config.js",
+    "test": "node test.js"
+  },
+  "author": "Fone丶峰",
+  "license": "ISC",
+  "devDependencies": {
+    "handlebars": "^4.7.6",
+    "js-beautify": "^1.11.0"
+  },
+  "files": [
+    "index.js",
+    "src"
+  ]
+}
