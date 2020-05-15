@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-13 14:32:37
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-05-14 14:13:41
+ * @LastEditTime: 2020-05-15 10:56:34
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -76,7 +76,17 @@ class createApi {
         const isParameters = str && str[1] ? true : false
         if (options) {
             options.forEach(element => {
-                element.isParameters = isParameters
+                if (element.in === 'body') {
+                    element.isBodyParameter = true
+                } else if (parameter.in === 'path') {
+                    element.isPathParameter = true
+                } else if (element.in === 'query') {
+                    element.isQueryParameter = true
+                } else if (element.in === 'header') {
+                    element.isHeaderParameter = true
+                } else if (element.in === 'formData') {
+                    element.isFormParameter = true
+                }
             });
             return [options[options.length - 1]]
         }
