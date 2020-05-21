@@ -2,7 +2,7 @@
  * @Author: Fone丶峰
  * @Date: 2020-05-13 14:32:37
  * @LastEditors: Fone丶峰
- * @LastEditTime: 2020-05-15 10:56:34
+ * @LastEditTime: 2020-05-15 11:12:22
  * @Description: msg
  * @Email: qinrifeng@163.com
  * @Github: https://github.com/FoneQinrf
@@ -72,13 +72,11 @@ class createApi {
     }
 
     getParameters(options, path) {
-        const str = path.match(/{(\S*?)}/)
-        const isParameters = str && str[1] ? true : false
         if (options) {
             options.forEach(element => {
                 if (element.in === 'body') {
                     element.isBodyParameter = true
-                } else if (parameter.in === 'path') {
+                } else if (element.in === 'path') {
                     element.isPathParameter = true
                 } else if (element.in === 'query') {
                     element.isQueryParameter = true
